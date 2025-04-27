@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <!-- <link rel="stylesheet" href="styles.css">   -->
+
+    <title>Ski Resort Database</title>
+</head>
+
+<body>
+    <h1>Customer Homepage</h1>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+
+    <h2>Buy Tickets</h2>
+    <table id="ticketTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Price</th>
+                <th>Company name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <form id="buyATicket">
+        Ticket ID: <input type="number" id="buyTicketID" placeholder="available ticket id" required><br><br>
+
+        <button type="submit">Buy</button>
+    </form>
+    <div id="buyATicketResultMsg"></div>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>Instructors by Level</h2>
+    <table id="levelInstructors" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <br>
+    <!--<form id="getLevelInstructors">
+        <!Level: <input type="number" min="1" max="3" id="levelInstructorSearch" placeholder="level 1,2 or 3"><br><br>
+
+    </form>-->
+
+    <button type="button" onclick="getLevelInstructors()">Search</button>
+
+    <br><br>
+
+    <!-- t.lID, t."LEVEL", lp.Price, t.dateTime, i.Name -->
+    <h2>Buy Lessons</h2>
+    <table id="lessonTable" border="1">
+        <thead>
+            <tr>
+                <th>Lesson ID</th>
+                <th>Level</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Instructor</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <form id="buyLesson">
+        Customer ID: <input type="number" id="buyLessonCID" placeholder="your id number" required><br><br>
+        Lesson ID: <input type="number" id="buyLessonID" placeholder="available lesson id" required><br><br>
+
+        <button type="submit">Buy</button>
+    </form>
+    <div id="buyLessonResultMsg"></div>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>Leave Review</h2>
+    <form id="leaveReview">
+        Customer ID: <input type="text" id="leaveReviewID" placeholder="your customer ID" required><br><br>
+        Run ID: <input type="number" id="leaveReviewRun" placeholder="run to review" required><br><br>
+        Score: <input type="number" id="inputScore" placeholder="rating out of 5" required><br><br>
+        Comments: <input type="text" id="inputComments" placeholder="optional comments"><br><br>
+
+        <button type="submit">Post Review</button>
+    </form>
+    <div id="leaveReviewResultMsg"></div>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>View Purchase History</h2>
+    <table id="customerPurchaseHistTickets" style="float: left" border="1">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Price</th>
+                <th>Purchase Date</th>
+                <th>Expiry</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table id="customerPurchaseHistLessons" style="float: left" border="1">
+        <thead>
+            <tr>
+                <th>Lesson ID</th>
+                <th>Level</th>
+                <th>Date</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+    </table>
+
+    <br><br>
+
+    <button type="button">View My History</button><br>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>Cancel Lessons</h2>
+    <form id="cancelLessons">
+        Lesson ID: <input type="number" id="lessonIDCancel" required><br><br>
+
+        <button type="submit">Cancel</button>
+    </form>
+    <div id="cancelLessonResultMsg"></div>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>View Resort Information</h2>
+    <form id="viewResortInfo">
+        View Specific: <input type="text" id="resortAddress" placeholder="resort address"><br><br>
+        <button type="submit">Search</button><br><br>
+    </form>
+    <div id="viewResortResultMsg"></div>
+
+    <h4>OR</h4><br>
+    <button type="button" id="viewAllResorts">View All</button><br>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>Check Run Reviews</h2>
+    <h3>View Runs</h3>
+    <form id="viewRuns">
+        Resort Name: <input type="text" id="resortForRuns" placeholder="mountain name"><br><br>
+
+        <!--button populates mountainRuns table with all runs of given mountain-->
+        <button type="submit">See Runs</button>
+    </form>
+
+    <br><br>
+
+    <table id="mountainRuns" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Difficulty</th>
+                <th>Length</th>
+            </tr>
+        </thead>
+    </table>
+
+    <br><br>
+
+    <h3>Filter By Score</h3>
+    <table id="runsHigherTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <form id="runsHigherThan">
+        Minimum Score: <input type="number" id="minScore" placeholder="number from 1-5">
+
+        <button type="submit" onclick="filterByScore()">Search</button>
+    </form>
+
+    <br><br>
+
+    <h3>Find Best Run</h3>
+    <table id="bestRunDisplay" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <br>
+
+    <button type="button" onclick="getBestRun()">Find</button>
+
+    <br><br>
+
+    <h3>View Run Reviews</h3>
+
+    <form id="viewReviews">
+        Run ID: <input type="number" id="runForReviews" placeholder="run id"><br><br>
+
+        <!--button populates runReviews table with all reviews of given run-->
+        <button type="submit">See Reviews</button>
+    </form>
+
+    <br><br>
+
+    <table id="runReviews" border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Score</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+    </table>
+
+    <h2>Database Reset</h2>
+    <br>
+    <button type="button" id="resetButtonCustomer" onclick="resetAllData()">RESET ALL DATA</button><br><br>
+    <div id="resetCustomerMsg"></div>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>

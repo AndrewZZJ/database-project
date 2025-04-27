@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <!-- <link rel="stylesheet" href="styles.css">   -->
+
+    <title>Ski Resort Database</title>
+</head>
+
+<body>
+    <h1>Ski Resort Database</h1>
+
+    <br>
+    <hr><br>
+
+    <!-- Choose which homepage to navigate to (will be login, simplified for now)-->
+    <h2>Login</h2>
+
+    <h3>As Guest</h3>
+    <button type="button" onclick="guestPage()">Go</button> <br><br>
+
+    <h3>As Existing Customer</h3>
+    <form id="customerLogin">
+        Account ID: <input type="text" id="customerAccount" placeholder="your account"><br><br>
+        Password: <input type="text" id="customerPassword" placeholder="password"><br><br>
+
+        <!--<button type="submit" onclick="customerPage()">Login</button><br><br> -->
+        <button type="button" onclick="customerPage()">Login</button>
+    </form>
+
+    <!-- A placeholder to display messages related to the login operation. -->
+    <div id="customerLoginResultMsg"></div>
+
+    <h3>As Existing Company</h3>
+    <form id="companyLogin">
+        Company Name: <input type="text" id="companyNameLogin" placeholder="your company's name"><br><br>
+
+        <!--<button type="submit" onclick="companyPage()"> Login </button> <br><br> -->
+        <button type="button" onclick="companyPage()">Login</button>
+    </form>
+    <!-- A placeholder to display messages related to the login operation. -->
+    <div id="companyLoginResultMsg"></div>
+
+    <br>
+    <hr><br>
+
+    <h2>Register a Customer</h2>
+    <form id="registerCustomer">
+        Name: <input type="text" id="customerName" placeholder="your name" required> <br><br>
+        Age: <input type="number" id="customerAge" placeholder="your age" maxlength="2"> <br><br>
+        Skill Level: <input type="text" id="customerSkill" placeholder="skill level"> <br><br>
+        Account ID: <input type="text" id="customerRegisterAccount" placeholder="set account name"><br><br>
+        Password: <input type="text" id="customerRegisterPassword" placeholder="set password"><br><br>
+
+        <button type="submit">Register</button><br><br>
+    </form>
+    <div id="registerCustomerResultMsg"></div>
+
+    <form id="registerCustomerLogin">
+        Account ID: <input type="text" id="customerAccount" placeholder="enter account name" required><br><br>
+        Password: <input type="text" id="customerPassword" placeholder="enter password" required><br><br>
+
+        <button type="submit">Login</button><br><br>
+    </form>
+    <div id="registerCustomerLoginResultMsg"></div>
+
+    <br>
+    <hr><br>
+
+    <h2>Register a Company</h2>
+    <form id="registerCompany">
+        Name: <input type="text" id="companyName" placeholder="company name" required> <br><br>
+        Phone: <input type="number" id="companyPhone" placeholder="phone number" maxlength="10"> <br><br>
+        Email: <input type="text" id="companyEmail" placeholder="email address"> <br><br>
+        Address: <input type="text" id="companyAddress" placeholder="address"> <br><br>
+        Account ID: <input type="text" id="companyRegisterAccount" placeholder="set account name"><br><br>
+        Password: <input type="text" id="companyRegisterPassword" placeholder="set password"><br><br>
+
+        <button type="submit">Register</button><br>
+    </form>
+    <div id="registerCompanyResultMsg"></div>
+
+    <form id="registerCompanyLogin">
+        Account ID: <input type="text" id="customerAccount" placeholder="enter account name" required><br><br>
+        Password: <input type="text" id="customerPassword" placeholder="enter password" required><br><br>
+
+        <button type="submit">Login</button><br><br>
+    </form>
+    <div id="registerCompanyLoginResultMsg"></div>
+
+    <h2>Database Reset</h2>
+    <br>
+    <button type="button" id="resetButtonLogin" onclick="resetAllData()">RESET ALL DATA</button><br><br>
+    <div id="resultResetAllDataMsg"></div>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>

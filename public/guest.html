@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <!-- <link rel="stylesheet" href="styles.css">   -->
+
+    <title>Ski Resort Database</title>
+</head>
+
+<body>
+    <h1>Ski Resort Database</h1>
+
+    <br>
+    <hr><br>
+
+    <h2>View Mountain Information</h2>
+    <h3>All Mountains</h3>
+    <table id="allMountainsGuest">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+    </table>
+
+    <!-- <br><br>
+
+    <form id="viewMountainInfo">
+        View Details Of: <input type="text" id="resortAddress" placeholder="mountain address"><br>
+
+        <button type="submit"></button>
+    </form>
+    <div id="viewMountainInfoResultMsg"></div> -->
+
+    <br>
+    <hr><br>
+
+    <h2>Search For Route</h2>
+    <form id="routeSearchGuest">
+        Start: <input type="number" id="startNode" placeholder="node id"><br><br>
+        End: <input type="number" id="startNode" placeholder="node id"><br><br>
+
+        <button type="submit">search</button>
+    </form>
+    <div id="runSearchResult"></div>
+
+    <br>
+    <hr><br>
+
+    <h2>Check Run Reviews</h2>
+    <h3>View Runs</h3>
+    <form id="listRunsGuest">
+        Resort Name: <input type="text" id="resortForRunsGuest" placeholder="mountain name"><br><br>
+
+        <!--button populates mountainRuns table with all runs of given mountain-->
+        <button type="submit">See Runs</button>
+    </form>
+
+    <br><br>
+
+    <table id="mountainRunsGuest" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Difficulty</th>
+                <th>Length</th>
+            </tr>
+        </thead>
+    </table>
+
+    <br><br>
+
+    <h3>View Reviews</h3>
+
+    <form id="listReviewsGuest">
+        Run ID: <input type="number" id="runForReviewsGuest" placeholder="run id"><br><br>
+
+        <!--button populates runReviews table with all reviews of given run-->
+        <button type="submit">See Reviews</button>
+    </form>
+
+    <br><br>
+
+    <table id="runReviewsGuest" border="1">
+        <thead>
+            <tr>
+                <th>Score</th>
+                <th>Comments</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+    </table>
+
+    <h2>Database Reset</h2>
+    <br>
+    <button type="button" id="resetButtonGuest" onclick="resetAllData()">RESET ALL DATA</button><br><br>
+    <div id="resetGuestMsg"></div>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>

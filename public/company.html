@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag ensures that the website renders correctly across different device sizes, enhancing mobile responsiveness. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the external CSS stylesheet. Uncomment if you wish to customize or add styling. -->
+    <!-- <link rel="stylesheet" href="styles.css">   -->
+
+    <title>Ski Resort Database</title>
+</head>
+
+<body>
+    <h1>Company Homepage</h1>
+
+    <br>
+    <hr><br>
+
+    <!-- Service Management (will add more "showing" tables) ================= -->
+
+    <h2>Set Ticket Price</h2>
+    <form id="setTicketPrice">
+        Company Name: <input type="text" id="ticketPriceCompany" placeholder="company name"><br><br>
+        New Price: <input type="number" id="newTicketPrice" placeholder="monetary value"><br><br>
+
+        <button type="submit"> Set </button><br><br>
+    </form>
+    <div id="setPriceResultMsg"></div>
+
+    <br>
+    <hr><br> <!-------------------------------------------------------------->
+
+    <h2>Manage Instructors</h2>
+    <h3>All Instructors</h3>
+    <table id="instructorTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table><br>
+    <button type="button" onclick="fetchInstructors()">Refresh</button>
+
+    <br><br>
+
+    <h3>Add Instructor</h3>
+    <form id="addInstructor">
+        ID: <input type="number" id="addInstructorID" placeholder="new id"><br><br>
+        Name: <input type="text" id="addInstructorName" placeholder="name of instructor"><br><br>
+        Phone: <input type="number" id="instructorPhone" placeholder="phone number"><br><br>
+        Email: <input type="text" id="instructorEmail" placeholder="email address"><br><br>
+
+        <button type="submit">Add</button>
+    </form>
+    <div id="addInstructorResultMsg"></div>
+
+    <br><br>
+    <h3>Update Instructor</h3>
+    <form id="updateInstructor">
+        ID: <input type="number" id="updateInstructorID" placeholder="ID to update" required><br><br>
+        Email: <input type="text" id="updateInstructorEmail" placeholder="updated email"><br><br>
+        Phone: <input type="number" id="updateInstructorPhone" placeholder="updated phone"><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+    <div id="updateInstructorResultMsg"></div>
+
+    <br><br>
+
+    <h3>Delete Instructor</h3>
+    <form id="deleteInstructor">
+        Instructor ID: <input type="number" id="deleteInstructorID" placeholder="iID" required><br><br>
+
+        <button type="submit">Delete</button><br><br>
+    </form>
+    <div id="deleteInstructorResultMsg"></div>
+
+    <br>
+    <hr><br> <!-------------------------------------------------------------->
+
+    <h2>Youngest Students to Award!</h2>
+    <table id="youngestTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <br><br>
+
+    <button type="button" id="getYoungest">Refresh</button><br>
+
+    <br>
+    <hr><br> <!-------------------------------------------------------------->
+
+    <h2>Manage Mountains</h2>
+    <h3>All Mountains</h3>
+    <table id="mountainTable" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Capacity</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <br>
+    <form id="getMountains">
+        Company Name: <input type="text" id="mountainCompanyName" placeholder="your company's name" required><br><br>
+
+        <button type="submit">View</button>
+    </form>
+
+    <br><br>
+
+    <h3>Add Mountain</h3>
+    <form id="addMountain">
+        Company Name: <input type="text" id="addMountainCompany" placeholder="company name" required><br><br>
+        Address: <input type="text" id="addMountainAddress" placeholder="mountain address" required><br><br>
+        Name: <input type="text" id="addMountainName" placeholder="mountain name"><br><br>
+        Capacity: <input type="number" id="addMountainCapacity" placeholder="lift Capacity"><br><br>
+
+        <button type="submit" id="addMountain">Add</button>
+    </form>
+    <div id="addMtnResultMsg"></div>
+
+    <br><br>
+
+    <h3>Update Mountain</h3>
+    <form id="updateMountain">
+        Address: <input type="text" id="updateMountainAddress" placeholder="mountain to update" required><br><br>
+        New Name: <input type="text" id="updateMountainName" placeholder="updated name"><br><br>
+        New Capacity: <input type="text" id="updateCapacity" placeholder="updatedCapacity"><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+    <div id="updateMtnResultMsg"></div>
+
+    <br><br>
+
+    <h3>Delete Mountain</h3>
+    <form id="deleteMountain">
+        Address: <input type="text" id="mountainAddress" placeholder="mountain to delete" required><br><br>
+
+        <button type="submit" id="deleteMountain">Delete</button><br><br>
+    </form>
+    <div id="deleteMtnResultMsg"></div>
+
+    <br>
+    <hr><br> <!-------------------------------------------------------------->
+
+    <h2>Manage Villages</h2>
+    <!-- <h3>All Mountains</h3>
+    <table id="villageTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+    </table>
+    
+    <br><br> -->
+
+
+    <h3>Add Village</h3>
+    <form id="addVillage">
+        Name: <input type="text" id="addVillageName" placeholder="village name"><br><br>
+        Location: <input type="number" id="addVillageNode" placeholder="node id"><br><br>
+
+        <button type="submit">Add Village</button><br><br>
+    </form>
+    <div id="addVlgResultMsg"></div>
+
+    <br><br>
+
+    <h3>Delete Village</h3>
+    <form id="deleteVillage">
+        Name: <input type="text" id="deleteVillageName" placeholder="village name"><br><br>
+
+        <button type="submit">Delete Village</button><br><br>
+    </form>
+    <div id="deleteVlgResultMsg"></div>
+
+    <br>
+    <hr><br> <!-------------------------------------------------------------->
+
+    <h2>Manage Services</h2>
+    <h3>Add Service</h3>
+    <form id="addService">
+        Village ID: <input type="number" id="villageID" placeholder="node id of village" required><br><br>
+        Service Type: <input type="text" id="serviceType" placeholder="type" required><br><br>
+        Open Time: <input type="time" id="openTime"><br><br>
+        Close Time: <input type="time" id="closeTime"><br><br>
+
+        <button type="submit" id="addService" style="float: left;">Add Service</button>
+        <button type="submit" id="deleteService" style="float: left;">Delete Service</button><br><br>
+    </form>
+    <div id="addSvcResultMsg"></div>
+
+    <br><br>
+    <h3>Delete Service</h3>
+    <form id="deleteService">
+        Village ID: <input type="number" id="deleteServiceVillage" placeholder="location of service"><br><br>
+        Service Type: <input type="text" id="deleteServiceType" placeholder="type"><br><br>
+
+        <button type="submit" id="deleteService">Delete Service</button><br><br>
+    </form>
+    <div id="deleteSvcResultMsg"></div>
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>View Customer Booking Status</h2>
+    <table id="bookingStatus" border="1">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Price</th>
+                <th>Expiry</th>
+            </tr>
+        </thead>
+    </table>
+
+    <!-- <br><br><br>
+
+    <form id="requestCustomerBookings">
+        Customer ID: <input type="number" id="customerIDBookings" placeholder="customer's id" required><br><br>
+
+        populates both tables below for a given cID-->
+    <!-- <button type="submit">View Bookings</button><br><br>
+    </form> -->
+
+    <br>
+    <hr><br> <!-- ========================================================================= -->
+
+    <h2>Send Customer Gift Card</h2>
+    <form id="sendGiftCard">
+        Customer ID: <input type="number" id="user_id" placeholder="customer's id" required><br><br>
+        Amount: <input type="number" id="value" placeholder="amount to send" required><br><br>
+
+        <button type="submit">Send</button><br><br>
+    </form>
+    <div id="sendGiftCardResultMsg"></div>
+
+    <br><br>
+
+    <h2>Database Reset</h2>
+    <br>
+    <button type="button" id="resetButtonCompany" onclick="resetAllData()">RESET ALL DATA</button><br><br>
+    <div id="resetCompanyMsg"></div>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>
