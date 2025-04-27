@@ -1,0 +1,24 @@
+{
+  "name": "ski_resort_navigator",
+  "version": "1.0.0",
+  "description": "Group 73, project for CPSC304.",
+  "main": "server.js",
+  "keywords": [],
+  "author": {
+    "name": "Alan Song-Hong Lee, Andrew Jiang, Jenna Crowell"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.17.3",
+    "oracledb": "^6.6.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^11.1.0",
+    "sinon": "^20.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
